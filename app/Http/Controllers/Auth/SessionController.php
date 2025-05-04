@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
 
-class LoginController extends Controller
+class SessionController extends Controller
 {
     public function showLoginForm(): View
     {
@@ -19,17 +19,24 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', Password::min(4)->letters()->symbols()],
+            'password' => ['required', Password::min(4)],
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return back();
+            return redirect()->route('home');
         }
 
         return back()->withErrors([
             'error' => 'Invalid credentials.',
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('home');
     }
 }
