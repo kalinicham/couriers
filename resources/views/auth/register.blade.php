@@ -1,17 +1,16 @@
 @extends('home')
 
 @section('content')
-    @if ($errors->any())
-        <div class="mb-4 bg-red-100 text-black text-sm rounded px-4 py-3 text-center">
-            <ul class="text-red-600">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <div class="max-w-sm mx-auto mt-8 p-6 bg-white shadow-md rounded-md self-start">
+        @if ($errors->any())
+            <div class="mb-4 bg-red-100 text-black text-sm rounded px-4 py-3 text-center">
+                <ul class="text-red-600">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <h2 class="text-xl mb-4">Register page</h2>
 
         <form action="{{ route('register') }}" method="POST">

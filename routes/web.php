@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\CourierController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,7 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::get('dashboard', [DashboardController::class, 'showDashboard'])
     ->middleware('auth')
     ->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('couriers', CourierController::class)->except('show');
+});
