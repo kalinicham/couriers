@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\CourierController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,3 +26,7 @@ Route::get('dashboard', [DashboardController::class, 'showDashboard'])
 Route::middleware('auth')->group(function () {
     Route::resource('couriers', CourierController::class)->except('show');
 });
+
+Route::get('map', [MapController::class, 'index'])
+    ->middleware('auth')
+    ->name('map');

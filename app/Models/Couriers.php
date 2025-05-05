@@ -26,4 +26,8 @@ class Couriers extends Model
         'gender',
         'status',
     ];
+
+    public function latestLocation() {
+        return $this->hasOne(CourierLocation::class, 'courier_id')->latestOfMany('recorded_at');
+    }
 }

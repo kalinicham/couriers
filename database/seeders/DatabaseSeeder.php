@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Couriers::factory(10)->create();
+        Couriers::factory(5)->create();
+        $this->call(CourierLocationSeeder::class);
     }
 }
