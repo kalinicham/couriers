@@ -26,6 +26,6 @@ class CourierLocation extends Model
 
     public function courier(): BelongsTo
     {
-        return $this->belongsTo(Couriers::class , 'courier_id');
+        return $this->belongsTo(Couriers::class, 'courier_id', 'id');
     }
 }
