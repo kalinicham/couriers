@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('main')
-    <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+    <div id="map" style="height: 80vh; width: 100%; margin-top: 20px;"></div>
 @endsection
 
 @push('scripts')

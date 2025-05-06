@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\CourierLocationUpdated;
 use App\Http\Controllers\Controller;
 use App\Models\CourierLocation;
 use App\Models\Couriers;
@@ -40,6 +41,9 @@ class CourierController extends Controller
                 'errors' => $th->getMessage()
             ], 400);
         }
+
+        event(new CourierLocationUpdated($id, $request->latitude, $request->longitude));
+
         return response()->json([
             'success' => 'true',
             'location' => $location

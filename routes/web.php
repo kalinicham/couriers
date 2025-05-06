@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\CourierController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DebugController;
 use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,6 @@ Route::middleware('auth')->group(function () {
 Route::get('map', [MapController::class, 'index'])
     ->middleware('auth')
     ->name('map');
+Route::get('debug', [DebugController::class, 'index'])
+    ->middleware('auth')
+    ->name('debug');

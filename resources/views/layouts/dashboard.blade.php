@@ -16,7 +16,7 @@
                 <ul class="space-y-2 text-sm">
                     <x-dashboard.menu-link href="{{ route('couriers.index') }}">Couriers</x-dashboard.menu-link>
                     <x-dashboard.menu-link href="{{ route('map') }}">Map</x-dashboard.menu-link>
-                    <x-dashboard.menu-link href="#">Debug</x-dashboard.menu-link>
+                    <x-dashboard.menu-link href="{{ route('debug') }}">Debug</x-dashboard.menu-link>
                 </ul>
             </div>
         </div>
